@@ -1,0 +1,62 @@
+#contact {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	max-width: 20%;
+	margin-bottom: 5%;
+	margin-top: 5%;
+}
+
+#news {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	max-width: 20%;
+	margin-bottom: 10%;
+	margin-top: 10%;
+}
+
+#review {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#review__list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#subCategories {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.categories {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.container {
+	display: grid;
+	grid-row: 10% 80% 10%;
+}
+
+footer {
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 10%
+}
+
+header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
