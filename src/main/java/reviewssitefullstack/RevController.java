@@ -15,6 +15,9 @@ public class RevController {
 
 	@Resource
 	ReviewRepo reviewRepo;
+	
+	@Resource
+	TagRepo tagRepo;
 
 	@RequestMapping("/categories")
 	public String getCategories(Model model) {
@@ -32,5 +35,11 @@ public class RevController {
 	public String findReview(@RequestParam(value = "id") Long id, Model model) {
 		model.addAttribute("review", reviewRepo.findOne(id));
 		return "review";
+	}
+	
+	@RequestMapping("/tag")
+	public String findTag(@RequestParam(value = "id") Long id, Model model) {
+		model.addAttribute("tag", tagRepo.findOne(id));
+		return "tag";
 	}
 }

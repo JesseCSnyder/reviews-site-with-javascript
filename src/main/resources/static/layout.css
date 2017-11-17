@@ -37,6 +37,13 @@
 	justify-content: center;
 }
 
+#tags {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+
 .categories {
 	display: flex;
 	flex-direction: row;
@@ -46,13 +53,18 @@
 
 .container {
 	display: grid;
-	grid-row: 10% 80% 10%;
+	grid-row: 1fr 8fr 1fr;
 }
 
 footer {
 	display: flex;
 	justify-content: flex-end;
 	padding-right: 10%
+}
+
+h3 {
+
+	padding: 10px;
 }
 
 header {

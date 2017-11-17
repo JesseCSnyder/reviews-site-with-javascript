@@ -4,12 +4,12 @@
 <link rel="stylesheet" href="./style.css"></link>
 <link rel="stylesheet" href="./layout.css"></link>
 <script src="https://use.fontawesome.com/ecc099372b.js"></script>
-<title>Reviews by Category</title>
+<title>Reviews by Tag</title>
 </head>
 <body>
 	<div class="container">
 		<header>
-			<h1 th:text="${category.category}"></h1>
+			<h1 th:text="${tag.tagType}"></h1>
 			<div id="social__media">
 				<i class="fa fa-facebook-square" aria-hidden="true"></i> <i
 					class="fa fa-reddit-square" aria-hidden="true"></i> <i
@@ -18,8 +18,8 @@
 					class="fa fa-google-plus-square" aria-hidden="true"></i>
 			</div>
 		</header>
-		<section id="review__list">
-			<h2 th:each="currentReview: ${category.reviewsInCategory}">
+		<section id="review__list__by__tag">
+			<h2 th:each="currentReview: ${tag.reviewsByTag}">
 				<a th:href="@{/review(id=${currentReview.id})}"
 					th:text="${currentReview.title}"></a>
 			</h2>

@@ -1,11 +1,18 @@
 package reviewssitefullstack;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
+
 
 @Entity
 public class Review {
@@ -18,15 +25,18 @@ public class Review {
 	private String image;
 	@Lob
 	private String description;
+	@ManyToMany 
+	private Set<Tag> tags;
 
 	protected Review() {
 	}
 
-	public Review(String title, Category category, String image, String description) {
+	public Review(String title, Category category, String image, String description, Tag...tags) {
 		this.title = title;
 		this.category = category;
 		this.image = image;
 		this.description = description;
+		this.tags = new HashSet<>(Arrays.asList(tags));
 	}
 
 	public Long getId() {
@@ -47,6 +57,10 @@ public class Review {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public Set<Tag> getTags() {
+		return tags;
 	}
 
 }
