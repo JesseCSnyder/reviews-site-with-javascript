@@ -15,7 +15,7 @@ public class Tag {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private String tagType;
+	private String tagName;
 	@ManyToMany(mappedBy="tags")
 	private Set<Review> reviewsByTag;
 	
@@ -23,11 +23,12 @@ public class Tag {
 		
 	}
 	
-	public Tag(String tagType) {
-		this.tagType = tagType;
+	public Tag(String tagName) {
+		
+		this.tagName = tagName;
 	}
 
-	public Tag(String tagType, Review...reviews) {
+	public Tag(String tagName, Review...reviews) {
 		
 	}
 
@@ -35,8 +36,8 @@ public class Tag {
 		return id;
 	}
 
-	public String getTagType() {
-		return tagType;
+	public String getTagName() {
+		return tagName;
 	}
 
 	public Set<Review> getReviewsByTag() {
@@ -45,7 +46,7 @@ public class Tag {
 
 	@Override
 	public String toString() {
-		return tagType;
+		return tagName;
 	}
 	
 	

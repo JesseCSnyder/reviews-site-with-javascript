@@ -30,6 +30,12 @@
 	align-items: center;
 }
 
+#review__list__by__tag {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 #subCategories {
 	display: flex;
 	flex-direction: column;

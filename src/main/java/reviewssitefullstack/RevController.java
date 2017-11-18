@@ -1,7 +1,8 @@
 package reviewssitefullstack;
 
-import javax.annotation.Resource;
+import java.util.Set;
 
+import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ public class RevController {
 
 	@Resource
 	ReviewRepo reviewRepo;
-	
+
 	@Resource
 	TagRepo tagRepo;
 
@@ -36,10 +37,35 @@ public class RevController {
 		model.addAttribute("review", reviewRepo.findOne(id));
 		return "review";
 	}
-	
+
 	@RequestMapping("/tag")
 	public String findTag(@RequestParam(value = "id") Long id, Model model) {
 		model.addAttribute("tag", tagRepo.findOne(id));
 		return "tag";
+	}
+
+	@RequestMapping("/add-tag")
+	public String addTag( Long id, String tagName, Model model) {
+		Tag newTag = new Tag(tagName);
+		tagRepo.save(newTag);
+		Review addTagToReview = reviewRepo.findOne(id);
+		addTagToReview.addTag(newTag);
+		reviewRepo.save(addTagToReview);
+		return "redirect:/review?id=" + id;
+
+	}
+
+	@RequestMapping("/remove-tag")
+	public String removeTag(@RequestParam(value = "id") Long id, String tagName, Model model) {
+		Tag tagBeingRemoved = tagRepo.findByTagName(tagName);
+		if (tagBeingRemoved != null) {
+			Review review = reviewRepo.findOne(id);
+			Set<Tag> existingTagsOnReview = review.getTags();
+			if (existingTagsOnReview.contains(tagBeingRemoved)) {
+				review.removeTag(tagBeingRemoved);
+			}
+			reviewRepo.save(review);
+		}
+		return "redirect:/review?id=" + id;
 	}
 }

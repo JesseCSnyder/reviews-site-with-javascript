@@ -62,5 +62,12 @@ public class Review {
 	public Set<Tag> getTags() {
 		return tags;
 	}
-
+	
+	public void addTag(Tag newTag) {
+		tags.add(newTag);
+	}
+	
+	public void removeTag(Tag tagBeingRemoved) {
+		tags.remove(tagBeingRemoved); 
+	}
 }
