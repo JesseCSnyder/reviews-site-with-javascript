@@ -8,6 +8,11 @@
 	margin-top: 5%;
 }
 
+#description {
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
 #news {
 	display: flex;
 	flex-direction: column;
@@ -43,6 +48,10 @@
 	justify-content: center;
 }
 
+#subSubCategories {
+	
+}
+
 #tags {
 	display: flex;
 	flex-direction: row;
@@ -59,7 +68,7 @@
 
 .container {
 	display: grid;
-	grid-row: 1fr 8fr 1fr;
+	grid-row: 10% 80% 10%;
 }
 
 .add__remove__tags {
@@ -78,6 +87,8 @@ footer {
 form {
 	padding: 20px;
 }
+
+
 
 h3 {
 
