@@ -45,12 +45,18 @@ public class RevController {
 	}
 
 	@RequestMapping("/add-tag")
-	public String addTag( Long id, String tagName, Model model) {
-		Tag newTag = new Tag(tagName);
-		tagRepo.save(newTag);
-		Review addTagToReview = reviewRepo.findOne(id);
-		addTagToReview.addTag(newTag);
-		reviewRepo.save(addTagToReview);
+	public String addTag(@RequestParam(value = "id") Long id, String tagName, Model model) {
+		Tag newTag = tagRepo.findByTagName(tagName);
+		if (newTag == null) {
+			newTag = new Tag(tagName);
+			tagRepo.save(newTag);
+		}
+		Review review = reviewRepo.findOne(id);
+		Set<Tag> existingTagsOnReview = review.getTags();
+		if (!existingTagsOnReview.contains(newTag)) {
+			review.addTag(newTag);
+			reviewRepo.save(review);
+		}
 		return "redirect:/review?id=" + id;
 
 	}

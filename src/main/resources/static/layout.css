@@ -62,10 +62,21 @@
 	grid-row: 1fr 8fr 1fr;
 }
 
+.add__remove__tags {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 20px;
+}
+
 footer {
 	display: flex;
 	justify-content: flex-end;
 	padding-right: 10%
+}
+
+form {
+	padding: 20px;
 }
 
 h3 {

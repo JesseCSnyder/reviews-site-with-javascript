@@ -20,7 +20,6 @@
 		</header>
 		<div id="review">
 			<h2 th:text="${review.title}"></h2>
-			<h2>Category:</h2>
 			<h2 th:text="${review.category}"></h2>
 			<img th:src="${review.image}"></img>
 			<h2 th:text="${review.description}"></h2>
@@ -30,21 +29,21 @@
 
 			</div>
 			
-			
-		<form class="add-tag" method="POST">
-			<input name="id" type="hidden" th:value="${review.id}" />
-			<label>Enter name of tag to add: </label>
-			<input type="text" name="tagName" />
-			<button th:formaction="@{/add-tag}">add</button>	
-		</form>
+		<div class="add__remove__tags">	
+			<form class="add-tag" method="POST">
+				<input name="id" type="hidden" th:value="${review.id}" />
+				<label>Enter name of tag to add: </label>
+				<input type="text" name="tagName" />
+				<button th:formaction="@{/add-tag}">add</button>	
+			</form>
 		
-		<form method="POST">
-			<input name="id" type="hidden" th:value="${review.id}" />
-			<label>Enter name of tag to remove:</label>
-			<input type="text" name="tagName" />
-			<button th:formaction="@{/remove-tag}">delete</button>
-		</form>
-			
+			<form method="POST">
+				<input name="id" type="hidden" th:value="${review.id}" />
+				<label>Enter name of tag to remove:</label>
+				<input type="text" name="tagName" />
+				<button th:formaction="@{/remove-tag}">delete</button>
+			</form>
+		</div>	
 			
 			<a id="back" th:href="@{/category(id=${review.category.id})}">Back to
 				Category</a>
