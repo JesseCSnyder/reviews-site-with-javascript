@@ -25,29 +25,38 @@
 			<h2 id="description" th:text="${review.description}"></h2>
 			<div id="tags">
 				<h2>Tags:</h2>
-				<a th:each="tag: ${review.tags}" th:href="@{/tag(id=${tag.Id})}" th:text="${tag.tagName}"></a>
+				<a th:each="tag: ${review.tags}" th:href="@{/tag(id=${tag.Id})}"
+					th:text="${tag.tagName}"></a>
 
 			</div>
-			
-		<div class="add__remove__tags">	
-			<form class="add-tag" method="POST">
-				<input name="id" type="hidden" th:value="${review.id}" />
-				<label>Enter name of tag to add: </label>
-				<input type="text" name="tagName" />
-				<button th:formaction="@{/add-tag}">add</button>	
-			</form>
-		
-			<form method="POST">
-				<input name="id" type="hidden" th:value="${review.id}" />
-				<label>Enter name of tag to remove:</label>
-				<input type="text" name="tagName" />
-				<button th:formaction="@{/remove-tag}">delete</button>
-			</form>
-		</div>	
-			
-			<a id="back" th:href="@{/category(id=${review.category.id})}">Back to
-				Category</a>
-			
+
+			<div class="add__remove__tags">
+				<form class="add-tag" method="POST">
+					<input name="id" type="hidden" th:value="${review.id}" /> <label>Enter
+						name of tag to add: </label> <input type="text" name="tagName" />
+					<button th:formaction="@{/add-tag}">add</button>
+				</form>
+
+				<form method="POST">
+					<input name="id" type="hidden" th:value="${review.id}" /> <label>Enter
+						name of tag to remove:</label> <input type="text" name="tagName" />
+					<button th:formaction="@{/remove-tag}">delete</button>
+				</form>
+			</div>
+
+
+			<div id="comment__section">
+
+				<textarea id="comment" rows="4" cols="50">Enter comment here:</textarea>
+				<button type="button" name="comment__button" id="comment__button">Click
+					to Add</button>
+
+			</div>
+
+
+			<a id="back" th:href="@{/category(id=${review.category.id})}">Back
+				to Category</a>
+
 		</div>
 		<footer>
 			<h4>Lorem Ipsum Industries Inc. Copyright 2017</h4>

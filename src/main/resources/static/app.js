@@ -15,3 +15,5 @@ copyRight.addEventListener('mouseover', function () {
 copyRight.addEventListener('mouseout', function () {
 	document.querySelector('h4').innerText = 'Lorem Ipsum Industries Inc. Copyright 2017';
 })
+
+

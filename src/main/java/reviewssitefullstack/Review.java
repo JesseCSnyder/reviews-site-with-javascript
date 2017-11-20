@@ -12,8 +12,6 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-
-
 @Entity
 public class Review {
 	@Id
@@ -25,13 +23,13 @@ public class Review {
 	private String image;
 	@Lob
 	private String description;
-	@ManyToMany 
+	@ManyToMany
 	private Set<Tag> tags;
 
 	protected Review() {
 	}
 
-	public Review(String title, Category category, String image, String description, Tag...tags) {
+	public Review(String title, Category category, String image, String description, Tag... tags) {
 		this.title = title;
 		this.category = category;
 		this.image = image;
@@ -62,12 +60,12 @@ public class Review {
 	public Set<Tag> getTags() {
 		return tags;
 	}
-	
+
 	public void addTag(Tag newTag) {
 		tags.add(newTag);
 	}
-	
+
 	public void removeTag(Tag tagBeingRemoved) {
-		tags.remove(tagBeingRemoved); 
+		tags.remove(tagBeingRemoved);
 	}
 }
