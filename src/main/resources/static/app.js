@@ -17,3 +17,16 @@ copyRight.addEventListener('mouseout', function () {
 })
 
 
+////Non-functional; work in progress
+//comment__button.addEventListener('click', function() {
+//	var commentNbr = 0;
+//	commentNbr = commentNbr + 1;
+//	var newComment = document.createElement('p');
+//	comment__section.appendChild('newComment');
+//	var response = document.createTextNode('comment');
+//	document.querySelector('p').createTextNode = document.querySelector('comment');
+//	newComment.className = 'commentNbr' + commentNbr;
+//	console.log(comment__button);
+//});
+
+	
